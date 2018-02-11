@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+      <h3>Add Your Tasks </h3>
+      <form class="form-horizontal" action="/add" method="POST">
+        <div class="form-group">
+          <div class="col-xs-2">
+            <label class="control-label">Task name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter the name of your task">
+          <div>
+          <br>
+            <div class="col-sm-offset">
+              <label for="description">Description:</label>
+              <textarea class="form-control"  type="text" id="description" placeholder="Enter the description of your task"></textarea>
+            </div>
+              <br>
+              <div class="col-sm-offset">
+                <button type="submit" class="btn btn-success">Add new item</button>
+              </div>
+        </div>
+      </form>
+{% endblock %}

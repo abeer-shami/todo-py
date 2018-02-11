@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-	<title>Todo app</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body background="http://www.lyhyxx.com/data/out/11/3829091-minimalist-wallpapers.jpg">
-      <div class="container">
-      <h3>Add Your Tasks </h3>
-      <form class="form-horizontal" action="{{ url_for('add') }}" method="POST">
-        <div class="form-group">
-          <div class="col-xs-2">
-            <label class="control-label">Task name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter the name of your task">
-          <div>
-          <br>
-            <div class="col-sm-offset">
-              <label for="description">Description:</label>
-              <textarea class="form-control" rows="5" type="text" id="description" placeholder="Enter the description of your task"></textarea>
-            </div>
-              <br>
-              <div class="col-sm-offset">
-                <button type="submit" class="btn btn-success">Add new item</button>
-              </div>
-        </div>
-      </form>
-    </div>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="container">
+    <h1>Welcome To TODO APP</h1>
+      <a href="/add" class="btn btn-success btn-lg">AddTask</a>
+  </div>
+{% endblock %}
