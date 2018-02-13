@@ -8,12 +8,12 @@ app = Flask (__name__)
 mysql = MySQL(app)
 
 # Config MySQL
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'tododb'
+app.config['MYSQL_HOST'] = 'mysql6001.site4now.net'
+app.config['MYSQL_USER'] = 'a34cb1_todo'
+app.config['MYSQL_PASSWORD'] = 'aroma123'
+app.config['MYSQL_DB'] = 'db_a34cb1_todo'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-app.config['MYSQL_PORT'] = '3306'
+app.secret_key = 'UPDATETHISPART'
 
 @app.route('/')
 def index():
@@ -26,8 +26,8 @@ def task():
 
 # Task Form Class
 class TaskForm(Form):
-    name = StringField('Name', [validators.Length(min=1, max=55)])
-    description = TextAreaField('Description', [validators.Length(min=5)])
+    name = StringField('Name')
+    description = TextAreaField('Description')
 
 # Add Article
 @app.route('/add', methods=['GET', 'POST'])
@@ -35,7 +35,7 @@ def add():
     form = TaskForm(request.form)
     if request.method == 'GET':
         return render_template('add.html')
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST':
         name = form.name.data
         description = form.description.data
 
@@ -53,7 +53,7 @@ def add():
 
         flash('the task created ', 'success')
 
-        return redirect(url_for('index'))
+        return redirect(url_for('add'))
 
     return render_template('index.html', form=form)
 if __name__ == '__main__':

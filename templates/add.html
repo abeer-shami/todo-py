@@ -3,7 +3,7 @@
 {% block body %}
 
       <h3>Add Your Tasks </h3>
-      <form class="form-horizontal" action="/add" method="POST">
+      <form class="form-horizontal" action="{{url_for('add')}}" method="POST">
         <div class="form-group">
           <div class="col-xs-2">
             <label class="control-label">Task name:</label>
